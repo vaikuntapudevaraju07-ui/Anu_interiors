@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
+  <defs>
+    <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#D4AF37" />
+      <stop offset="50%" stop-color="#AA771C" />
+      <stop offset="100%" stop-color="#855806" />
+    </linearGradient>
+    <linearGradient id="warmBg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#141312" />
+      <stop offset="100%" stop-color="#0A0908" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="100%" height="100%" fill="url(#warmBg)" rx="24" />
+
+  <!-- Subtle Architectural Grid Background Accent -->
+  <g opacity="0.08" stroke="#D4AF37" stroke-width="0.75">
+    <circle cx="250" cy="175" r="95" fill="none" />
+    <circle cx="250" cy="175" r="130" fill="none" stroke-dasharray="2 6" />
+  </g>
+
+  <!-- Architectural Icon -->
+  <!-- An elegant, precision-crafted architectural synthesis of an archway, colonnade, and apex pyramid -->
+  <g id="architectural-icon" transform="translate(0, 5)">
+    <!-- Central Romanesque Arch / Doorway -->
+    <path d="M 220 220 L 220 165 A 30 30 0 0 1 280 165 L 280 220" fill="none" stroke="url(#goldGradient)"
+      stroke-width="2.5" stroke-linecap="round" />
+
+    <!-- Inner Portal Accent -->
+    <path d="M 232 220 L 232 170 A 18 18 0 0 1 268 170 L 268 220" fill="none" stroke="#D4AF37" stroke-width="1.2"
+      opacity="0.75" />
+
+    <!-- Outer Symmetrical Architectural Portico Lines -->
+    <line x1="202" y1="180" x2="202" y2="220" stroke="url(#goldGradient)" stroke-width="2" stroke-linecap="round" />
+    <line x1="298" y1="180" x2="298" y2="220" stroke="url(#goldGradient)" stroke-width="2" stroke-linecap="round" />
+
+    <!-- Outer Flanking Columns -->
+    <line x1="186" y1="200" x2="186" y2="220" stroke="url(#goldGradient)" stroke-width="1.5" stroke-linecap="round"
+      opacity="0.8" />
+    <line x1="314" y1="200" x2="314" y2="220" stroke="url(#goldGradient)" stroke-width="1.5" stroke-linecap="round"
+      opacity="0.8" />
+
+    <!-- Entablature / Pediment Apex Structure -->
+    <path d="M 175 160 L 250 100 L 325 160" fill="none" stroke="url(#goldGradient)" stroke-width="2.5"
+      stroke-linecap="round" stroke-linejoin="round" />
+
+    <!-- Pediment Inner Apex -->
+    <path d="M 200 160 L 250 120 L 300 160" fill="none" stroke="#E6C875" stroke-width="1.5" stroke-linecap="round"
+      opacity="0.6" />
+
+    <!-- Arch Keystone & Apex Finial -->
+    <circle cx="250" cy="98" r="3" fill="#E6C875" />
+    <circle cx="250" cy="135" r="2.5" fill="#D4AF37" />
+
+    <!-- Arch Plinth Base -->
+    <line x1="170" y1="220" x2="330" y2="220" stroke="url(#goldGradient)" stroke-width="2.5" stroke-linecap="round" />
+  </g>
+
+  <!-- Typography: ANU -->
+  <text x="250" y="300" text-anchor="middle" font-family="'Playfair Display', 'Bodoni MT', 'Didot', 'Cinzel', serif"
+    font-size="46" font-weight="600" letter-spacing="0.28em" fill="#F4ECE1">
+    ANU
+  </text>
+
+  <!-- Elegant Architectural Divider -->
+  <g transform="translate(0, 10)">
+    <line x1="150" y1="330" x2="350" y2="330" stroke="url(#goldGradient)" stroke-width="1.2" stroke-linecap="round"
+      opacity="0.7" />
+    <!-- Central diamond motif on rule line -->
+    <polygon points="250,327 253,330 250,333 247,330" fill="#E6C875" />
+  </g>
+
+  <!-- Typography: INTERIORS -->
+  <text x="250" y="380" text-anchor="middle"
+    font-family="'Montserrat', 'Cinzel', 'Trajan Pro', 'Helvetica Neue', sans-serif" font-size="14.5" font-weight="300"
+    letter-spacing="0.55em" fill="#B3A898">
+    INTERIORS
+  </text>
+</svg>

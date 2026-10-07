@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"
+    name="viewport" />
+  <meta content="mobile_tab" name="shell-type" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700&amp;display=swap"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    rel="stylesheet" />
+  <style>
+    @layer base {
+
+      html,
+      body {
+        width: 100vw;
+        margin: 0;
+        padding: 0;
+        background-color: #fbf9f4;
+      }
+
+      body {
+        overscroll-behavior-y: none;
+        -webkit-tap-highlight-color: transparent;
+      }
+
+      .pb-safe {
+        padding-bottom: env(safe-area-inset-bottom, 0px);
+      }
+
+      .pt-safe {
+        padding-top: env(safe-area-inset-top, 0px);
+      }
+
+      main>:first-child {
+        margin-top: 0 !important;
+      }
+
+      main>:last-child {
+        margin-bottom: 0 !important;
+      }
+    }
+
+    ::-webkit-scrollbar {
+      display: none;
+    }
+  </style>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script
+    id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "tertiary": "#000000", "secondary-fixed-dim": "#e4c191", "on-surface": "#1b1c19", "on-background": "#1b1c19", "on-tertiary-fixed-variant": "#484740", "outline-variant": "#cec5bd", "outline": "#7d766f", "inverse-primary": "#cbc5c2", "error-container": "#ffdad6", "surface-container-highest": "#e4e2dd", "primary-fixed": "#e7e1de", "surface-container": "#f0eee9", "tertiary-fixed-dim": "#cac6bd", "surface-dim": "#dbdad5", "on-secondary-container": "#795e36", "on-tertiary-fixed": "#1c1c16", "primary-fixed-dim": "#cbc5c2", "surface": "#fbf9f4", "on-error": "#ffffff", "on-primary": "#ffffff", "on-primary-container": "#878380", "surface-tint": "#615e5b", "on-primary-fixed": "#1d1b19", "on-primary-fixed-variant": "#494644", "on-tertiary-container": "#86847b", "inverse-surface": "#30312e", "on-secondary-fixed": "#291800", "secondary-container": "#ffdaa8", "on-secondary": "#ffffff", "surface-container-high": "#eae8e3", "tertiary-container": "#1c1c16", "surface-container-lowest": "#ffffff", "error": "#ba1a1a", "surface-bright": "#fbf9f4", "tertiary-fixed": "#e6e2d8", "primary": "#000000", "background": "#fbf9f4", "on-tertiary": "#ffffff", "on-secondary-fixed-variant": "#5a421d", "inverse-on-surface": "#f2f1ec", "primary-container": "#1d1b19", "secondary": "#745a32", "surface-variant": "#e4e2dd", "secondary-fixed": "#ffddb0", "on-surface-variant": "#4b4640", "on-error-container": "#93000a", "surface-container-low": "#f5f3ee" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "space-lg": "2.5rem", "gutter": "2rem", "space-sm": "0.75rem", "gutter-sm": "1rem", "space-xl": "4rem", "margin-sm": "1.5rem", "margin": "4rem", "space-xs": "0.375rem", "space-md": "1.5rem" }, "fontFamily": { "label-sm": ["Plus Jakarta Sans"], "title": ["Playfair Display"], "body-md": ["Plus Jakarta Sans"], "headline-lg": ["Playfair Display"], "display-mobile": ["Playfair Display"], "body-sm": ["Plus Jakarta Sans"], "label-md": ["Plus Jakarta Sans"], "headline-lg-mobile": ["Playfair Display"], "headline-sm": ["Playfair Display"], "display": ["Playfair Display"], "headline-md": ["Playfair Display"], "body-lg": ["Plus Jakarta Sans"] }, "fontSize": { "label-sm": ["0.6875rem", { "lineHeight": "0.875rem", "letterSpacing": "0.16em", "fontWeight": "600" }], "title": ["1.25rem", { "lineHeight": "1.75rem", "letterSpacing": "0.01em", "fontWeight": "600" }], "body-md": ["1rem", { "lineHeight": "1.65rem", "letterSpacing": "0em", "fontWeight": "400" }], "headline-lg": ["3.25rem", { "lineHeight": "3.75rem", "letterSpacing": "-0.015em", "fontWeight": "400" }], "display-mobile": ["2.75rem", { "lineHeight": "3.25rem", "letterSpacing": "-0.01em", "fontWeight": "400" }], "body-sm": ["0.875rem", { "lineHeight": "1.45rem", "letterSpacing": "0.01em", "fontWeight": "400" }], "label-md": ["0.75rem", { "lineHeight": "1rem", "letterSpacing": "0.12em", "fontWeight": "600" }], "headline-lg-mobile": ["2.25rem", { "lineHeight": "2.75rem", "letterSpacing": "-0.01em", "fontWeight": "400" }], "headline-sm": ["1.75rem", { "lineHeight": "2.25rem", "letterSpacing": "0em", "fontWeight": "500" }], "display": ["4.5rem", { "lineHeight": "5rem", "letterSpacing": "-0.02em", "fontWeight": "400" }], "headline-md": ["2.25rem", { "lineHeight": "2.75rem", "letterSpacing": "-0.01em", "fontWeight": "400" }], "body-lg": ["1.125rem", { "lineHeight": "1.875rem", "letterSpacing": "-0.005em", "fontWeight": "400" }] } } } }</script>
+  <style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+
+<body class="bg-surface font-body-md text-on-surface antialiased min-h-screen flex flex-col">
+  <header class="fixed top-0 w-full z-50 pt-safe bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.03)]">
+    <div class="h-16 px-margin-sm flex items-center justify-between gap-space-xs">
+      <div class="flex items-center gap-space-sm"><img alt="Anu Interiors Logo" class="h-12 w-auto object-contain"
+          src="logo.svg" />
+        <div class="flex flex-col"><span
+            class="font-title text-title tracking-tight text-on-surface leading-none">Anu</span><span
+            class="font-label-sm text-label-sm uppercase tracking-widest text-secondary -mt-0.5">Interiors</span></div>
+      </div>
+      <div class="flex items-center gap-space-sm"><a
+          class="hidden min-[370px]:inline-flex items-center justify-center min-h-[44px] px-space-sm bg-primary text-on-primary font-label-sm text-label-sm uppercase tracking-wider transition-colors hover:bg-secondary"
+          data-path="contact" href="contact.html"><span
+            class="material-symbols-outlined text-[15px] mr-1">event_available</span>Inquire</a>
+        <div class="relative flex items-center justify-center min-w-[44px] min-h-[44px]"><img alt="Profile"
+            class="w-8 h-8 rounded-full object-cover"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAnM1bnVyFc5YB7ZlxnrlbmT0ZuVlFYRQ4secHD53FkoOy77FJgarCFHD209upg39vAO1ostYgj8zj7z94soYJRKOK-TL2mh5YQq8ExU7aHJEcAD2AwbM_9p2yytWbBl47qoIF1oqzLm8ckSl98-6N1M7sV7f3aGEs6bJSu3Ijfjhwaz0VGfwRGQF0BnhuhZmgDQ8C6L6PU8wdT7OupHIbAnN7z2FJ-N1i3DDmTBVY" />
+        </div>
+      </div>
+    </div>
+  </header>
+  <main class="flex flex-col relative w-full pt-16 pb-24 bg-surface min-h-screen">
+    <div class="flex flex-col w-full">
+      <!-- Hero Section -->
+      <section class="relative w-full px-margin-sm pt-space-md pb-space-lg">
+        <div class="flex flex-col gap-space-sm">
+          <div class="flex items-center gap-2">
+            <span class="w-6 h-[1.5px] bg-secondary"></span>
+            <span class="font-label-sm text-label-sm uppercase tracking-widest text-secondary">Architectural
+              Sanctuary</span>
+          </div>
+          <h1 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface leading-tight tracking-tight">
+            Bespoke Spaces Crafted with Intent &amp; Soul
+          </h1>
+          <p class="font-body-md text-body-md text-on-surface-variant max-w-xl">
+            Award-winning architectural interior design studio transforming residences and boutique commercial spaces
+            into timeless sanctuaries.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-3 pt-space-xs">
+            <a class="inline-flex items-center justify-center min-h-[48px] px-space-md bg-primary text-on-primary font-label-md text-label-md uppercase tracking-widest transition-colors hover:bg-secondary shadow-sm"
+              data-path="projects" href="project.html">
+              <span>Explore Projects</span>
+              <span class="material-symbols-outlined text-[18px] ml-2">arrow_forward</span>
+            </a>
+            <a class="inline-flex items-center justify-center min-h-[48px] px-space-md bg-surface-container-high text-on-surface font-label-md text-label-md uppercase tracking-widest hover:bg-surface-container-highest transition-colors"
+              data-path="contact" href="contact.html">
+              <span class="material-symbols-outlined text-[18px] mr-2 text-secondary">calendar_today</span>
+              <span>Book Consultation</span>
+            </a>
+          </div>
+        </div>
+        <!-- Editorial Hero Showcase Image -->
+        <div class="mt-space-md relative overflow-hidden bg-surface-container shadow-md">
+          <div class="aspect-[4/3] w-full overflow-hidden">
+            <img class="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+              data-alt="Editorial photograph of an expansive luxury living room featuring natural travertine stone walls, warm bespoke white oak cabinetry, floor-to-ceiling recessed glass windows revealing lush greenery, minimalist neutral linen furniture, sculpted bronze accents, soft daylight and quiet architectural grandeur in a curated high-end residential interior."
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuCSgAhudgt1lu7dr-dcAETn41fOk6OdpLmrlLJc3a61_Z0H0tZ7Ocl-Ic5hnRNW-UVw0rcRySbyci1B4AsZjRSwfTwvyrOxZoH4pR_ihofqKYzRkm3WpSuyxenZsI53vFwWoPrYpbsT_0iuLWlYdkCE1DEb_mgrLdCpKnQADgMmkzwxjLDhjInK8Lsv10QpHf6fm7x8b8W8Mo96myRZ_ICZu0WIp92VScuVwFRAEgg" />
+          </div>
+          <div class="p-space-sm bg-surface-container-low flex items-center justify-between">
+            <div class="flex flex-col">
+              <span class="font-title text-[0.95rem] text-on-surface">The Monolith Pavilion</span>
+              <span class="font-label-sm text-label-sm text-secondary uppercase tracking-wider">South Mumbai • Private
+                Residence</span>
+            </div>
+            <span
+              class="font-label-sm text-label-sm text-on-surface-variant uppercase bg-surface-container px-2 py-1">2024</span>
+          </div>
+        </div>
+        <!-- Architectural Metrics Stats Banner -->
+        <div class="mt-space-md grid grid-cols-3 gap-2 bg-surface-container-low p-space-sm shadow-sm">
+          <div class="flex flex-col items-center text-center p-2">
+            <span class="font-title text-title text-on-surface font-semibold">12+</span>
+            <span class="font-label-sm text-label-sm uppercase tracking-wider text-secondary mt-1">Years of Craft</span>
+          </div>
+          <div class="flex flex-col items-center text-center p-2 bg-surface-container">
+            <span class="font-title text-title text-on-surface font-semibold">180+</span>
+            <span class="font-label-sm text-label-sm uppercase tracking-wider text-secondary mt-1">Sanctuaries</span>
+          </div>
+          <div class="flex flex-col items-center text-center p-2">
+            <span class="font-title text-title text-on-surface font-semibold">15</span>
+            <span class="font-label-sm text-label-sm uppercase tracking-wider text-secondary mt-1">Awards</span>
+          </div>
+        </div>
+      </section>
+      <!-- Studio Philosophy Editorial Teaser -->
+      <section class="w-full px-margin-sm py-space-md bg-surface-container-low">
+        <div class="flex flex-col gap-space-xs">
+          <div class="flex items-center gap-2">
+            <span class="material-symbols-outlined text-secondary text-[20px]">auto_awesome</span>
+            <span class="font-label-sm text-label-sm uppercase tracking-widest text-secondary">Design Creed</span>
+          </div>
+          <blockquote class="font-title text-[1.35rem] leading-relaxed text-on-surface italic my-2">
+            “Architecture is not just what you see, but how a sanctuary makes you feel.”
+          </blockquote>
+          <div class="flex items-center justify-between pt-2">
+            <div class="flex flex-col">
+              <span class="font-label-md text-label-md text-on-surface uppercase tracking-wider font-semibold">Anuradha
+                Sen</span>
+              <span class="font-label-sm text-label-sm text-on-surface-variant">Principal Architect &amp; Founder</span>
+            </div>
+            <div class="flex items-center gap-1.5 bg-secondary-container px-2.5 py-1 text-on-secondary-container">
+              <span class="material-symbols-outlined text-[14px]">verified</span>
+              <span class="font-label-sm text-label-sm tracking-wider uppercase font-semibold">AD100 India</span>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Featured Services Preview -->
+      <section class="w-full px-margin-sm py-space-lg flex flex-col gap-space-md">
+        <div class="flex flex-col gap-1">
+          <div class="flex items-center gap-2">
+            <span class="w-5 h-[1.5px] bg-secondary"></span>
+            <span class="font-label-sm text-label-sm uppercase tracking-widest text-secondary">Expertise</span>
+          </div>
+          <div class="flex items-end justify-between">
+            <h2 class="font-headline-sm text-headline-sm text-on-surface">Curated Disciplines</h2>
+            <a class="font-label-sm text-label-sm text-secondary uppercase tracking-wider flex items-center hover:text-on-surface transition-colors"
+              data-path="services" href="service.html">
+              All Services <span class="material-symbols-outlined text-[14px] ml-0.5">chevron_right</span>
+            </a>
+          </div>
+        </div>
+        <!-- Service Cards Stack -->
+        <div class="flex flex-col gap-space-sm">
+          <!-- Service Card 1 -->
+          <div
+            class="bg-surface-container p-space-sm shadow-sm flex flex-col gap-3 group transition-all duration-300 hover:bg-surface-container-high">
+            <div class="flex items-start justify-between">
+              <div class="w-10 h-10 bg-primary text-on-primary flex items-center justify-center">
+                <span class="material-symbols-outlined text-[20px]">villa</span>
+              </div>
+              <span
+                class="font-label-sm text-label-sm uppercase tracking-wider bg-surface-container-highest px-2 py-0.5 text-on-surface-variant">Signature</span>
+            </div>
+            <div>
+              <h3 class="font-title text-title text-on-surface">Bespoke Residential</h3>
+              <p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
+                Complete turnkey interior architecture for private estates, penthouses, and heritage residences tailored
+                to individual rhythms of living.
+              </p>
+            </div>
+            <div class="flex items-center justify-between pt-2">
+              <div class="flex items-center gap-2">
+                <span
+                  class="font-label-sm text-[0.65rem] uppercase tracking-wider text-secondary bg-surface-container-lowest px-2 py-0.5">Spatial
+                  Flow</span>
+                <span
+                  class="font-label-sm text-[0.65rem] uppercase tracking-wider text-secondary bg-surface-container-lowest px-2 py-0.5">Raw
+                  Stone</span>
+              </div>
+              <a class="font-label-md text-label-md uppercase text-on-surface tracking-wider inline-flex items-center group-hover:text-secondary transition-colors"
+                data-path="services" href="service.html">
+                Learn more <span class="material-symbols-outlined text-[16px] ml-1">arrow_forward</span>
+              </a>
+            </div>
+          </div>
+          <!-- Service Card 2 -->
+          <div
+            class="bg-surface-container p-space-sm shadow-sm flex flex-col gap-3 group transition-all duration-300 hover:bg-surface-container-high">
+            <div class="flex items-start justify-between">
+              <div class="w-10 h-10 bg-primary text-on-primary flex items-center justify-center">
+                <span class="material-symbols-outlined text-[20px]">countertops</span>
+              </div>
+              <span
+                class="font-label-sm text-label-sm uppercase tracking-wider bg-surface-container-highest px-2 py-0.5 text-on-surface-variant">Precision</span>
+            </div>
+            <div>
+              <h3 class="font-title text-title text-on-surface">Modular Kitchens &amp; Living</h3>
+              <p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
+                German-engineered joinery married with artisanal natural marble, smoked timber, and hidden ambient
+                lighting configurations.
+              </p>
+            </div>
+            <div class="flex items-center justify-between pt-2">
+              <div class="flex items-center gap-2">
+                <span
+                  class="font-label-sm text-[0.65rem] uppercase tracking-wider text-secondary bg-surface-container-lowest px-2 py-0.5">Custom
+                  Millwork</span>
+                <span
+                  class="font-label-sm text-[0.65rem] uppercase tracking-wider text-secondary bg-surface-container-lowest px-2 py-0.5">Smart
+                  Systems</span>
+              </div>
+              <a class="font-label-md text-label-md uppercase text-on-surface tracking-wider inline-flex items-center group-hover:text-secondary transition-colors"
+                data-path="services" href="service.html">
+                Learn more <span class="material-symbols-outlined text-[16px] ml-1">arrow_forward</span>
+              </a>
+            </div>
+          </div>
+          <!-- Service Card 3 -->
+          <div
+            class="bg-surface-container p-space-sm shadow-sm flex flex-col gap-3 group transition-all duration-300 hover:bg-surface-container-high">
+            <div class="flex items-start justify-between">
+              <div class="w-10 h-10 bg-primary text-on-primary flex items-center justify-center">
+                <span class="material-symbols-outlined text-[20px]">storefront</span>
+              </div>
+              <span
+                class="font-label-sm text-label-sm uppercase tracking-wider bg-surface-container-highest px-2 py-0.5 text-on-surface-variant">Commercial</span>
+            </div>
+            <div>
+              <h3 class="font-title text-title text-on-surface">Commercial Atelier</h3>
+              <p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
+                Haute-couture boutiques, flagship culinary concepts, and executive workspaces designed to communicate
+                brand prestige and quiet luxury.
+              </p>
+            </div>
+            <div class="flex items-center justify-between pt-2">
+              <div class="flex items-center gap-2">
+                <span
+                  class="font-label-sm text-[0.65rem] uppercase tracking-wider text-secondary bg-surface-container-lowest px-2 py-0.5">Atmosphere</span>
+                <span
+                  class="font-label-sm text-[0.65rem] uppercase tracking-wider text-secondary bg-surface-container-lowest px-2 py-0.5">Acoustics</span>
+              </div>
+              <a class="font-label-md text-label-md uppercase text-on-surface tracking-wider inline-flex items-center group-hover:text-secondary transition-colors"
+                data-path="services" href="service.html">
+                Learn more <span class="material-symbols-outlined text-[16px] ml-1">arrow_forward</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Signature Projects Highlight (Horizontal Scroll / Swipeable Showcase) -->
+      <section class="w-full py-space-md bg-surface-container-low flex flex-col gap-space-sm">
+        <div class="px-margin-sm flex items-end justify-between">
+          <div>
+            <span class="font-label-sm text-label-sm uppercase tracking-widest text-secondary block">Portfolio</span>
+            <h2 class="font-headline-sm text-headline-sm text-on-surface mt-0.5">Signature Projects</h2>
+          </div>
+          <div class="flex items-center gap-1.5">
+            <button aria-label="Previous Project"
+              class="w-9 h-9 bg-surface-container flex items-center justify-center text-on-surface hover:bg-primary hover:text-on-primary transition-colors"
+              id="projectPrevBtn">
+              <span class="material-symbols-outlined text-[18px]">west</span>
+            </button>
+            <button aria-label="Next Project"
+              class="w-9 h-9 bg-surface-container flex items-center justify-center text-on-surface hover:bg-primary hover:text-on-primary transition-colors"
+              id="projectNextBtn">
+              <span class="material-symbols-outlined text-[18px]">east</span>
+            </button>
+          </div>
+        </div>
+        <!-- Scrollable container -->
+        <div
+          class="flex overflow-x-auto gap-space-sm px-margin-sm pb-2 snap-x snap-mandatory scroll-smooth no-scrollbar"
+          id="projectSlider">
+          <!-- Project 1 -->
+          <article class="min-w-[82vw] sm:min-w-[340px] snap-center flex flex-col bg-surface-container shadow-sm">
+            <div class="aspect-[4/3] w-full overflow-hidden relative">
+              <img class="w-full h-full object-cover"
+                data-alt="Luxurious duplex penthouse salon in Mayfair London with double-height ceilings, brushed brass detailing, bespoke boucle modular sofa, chevron smoked French oak parquet, modern sculptural limestone fireplace and museum lighting."
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAp_WuTPkEW0fjPGEnxBE97qqDot9crlZQMrIVuDlQUz40tKw2pqPXpnNif3C9aC-6-Nf7ViBvCss1SKDdaK98S3Rkyx8GYrzgrr2BXhau1-qiwhASxWOM4atdsvXEq0DKkeq76Qrm6ztCL7vi3mMraJxVTwNwxZbqbrUfU08ZmAUdgJjKbrq8wIFtB8E6uHUgrQr7IL31CJKN40OizYbv5sQIit4_WYob2DqxzRzE" />
+              <span
+                class="absolute top-3 left-3 bg-primary/80 backdrop-blur-md text-on-primary font-label-sm text-[0.625rem] uppercase tracking-widest px-2.5 py-1">Residential</span>
+            </div>
+            <div class="p-space-sm flex flex-col gap-2">
+              <div class="flex justify-between items-baseline">
+                <h3 class="font-title text-[1.1rem] text-on-surface">The Penthouse at Mayfair</h3>
+                <span class="font-label-sm text-label-sm text-secondary font-semibold">2024</span>
+              </div>
+              <p class="font-body-sm text-body-sm text-on-surface-variant">
+                Brushed brass, fluted travertine, and floor-to-ceiling glass panoramic terrace.
+              </p>
+              <div class="pt-2 flex items-center justify-between">
+                <span class="font-label-sm text-label-sm text-on-surface-variant tracking-wider uppercase">6,200 sq.ft •
+                  London</span>
+                <a class="font-label-sm text-label-sm uppercase tracking-wider text-secondary hover:text-on-surface transition-colors font-semibold"
+                  data-path="projects" href="project.html">View Case</a>
+              </div>
+            </div>
+          </article>
+          <!-- Project 2 -->
+          <article class="min-w-[82vw] sm:min-w-[340px] snap-center flex flex-col bg-surface-container shadow-sm">
+            <div class="aspect-[4/3] w-full overflow-hidden relative">
+              <img class="w-full h-full object-cover"
+                data-alt="Serene coastal luxury villa in Alibaug India featuring open-air indoor courtyard with reflection pool, exposed monolithic concrete walls, teak wood louvers, natural linen upholstery and warm twilight architectural spotlighting."
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDMGN0DWUoygke75vkyJqUh92yLSC6PZFoLheIL1wJjjD5zgp1ToluJmIqIfNcqO8QBlK-UEWObni43kw5yP9zsaG9JXglg1yQOh5JFxHPUdQiTP5iJ78CtSgJM1JdYtcCHq7o_d5Ybq5gaj4rWZL7UNq1YRZ2ggWN1M3flm2uKcJ079srn6BXLYmASHYkEFtyC2RiPvrDjh6zasXox_6HV3n_NkMO7zkRopJKsOXI" />
+              <span
+                class="absolute top-3 left-3 bg-primary/80 backdrop-blur-md text-on-primary font-label-sm text-[0.625rem] uppercase tracking-widest px-2.5 py-1">Estate</span>
+            </div>
+            <div class="p-space-sm flex flex-col gap-2">
+              <div class="flex justify-between items-baseline">
+                <h3 class="font-title text-[1.1rem] text-on-surface">Villa Sereno, Alibaug</h3>
+                <span class="font-label-sm text-label-sm text-secondary font-semibold">2023</span>
+              </div>
+              <p class="font-body-sm text-body-sm text-on-surface-variant">
+                Monolithic concrete, reclaimed Burma teak, and tranquil water courtyards.
+              </p>
+              <div class="pt-2 flex items-center justify-between">
+                <span class="font-label-sm text-label-sm text-on-surface-variant tracking-wider uppercase">11,500 sq.ft
+                  • Coastal</span>
+                <a class="font-label-sm text-label-sm uppercase tracking-wider text-secondary hover:text-on-surface transition-colors font-semibold"
+                  data-path="projects" href="project.html">View Case</a>
+              </div>
+            </div>
+          </article>
+          <!-- Project 3 -->
+          <article class="min-w-[82vw] sm:min-w-[340px] snap-center flex flex-col bg-surface-container shadow-sm">
+            <div class="aspect-[4/3] w-full overflow-hidden relative">
+              <img class="w-full h-full object-cover"
+                data-alt="Minimalist urban loft in Bandra Mumbai featuring lime plaster textured walls, raw micro-cement floors, minimalist bespoke walnut dining table, floating credenza and understated Japanese wabi-sabi lighting aesthetics."
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDgEyXpFHO_oHn9GKXf7acHKfPpKf8deScbZTaeEAvoSEIPhBeI33eS3ZZnXLYJqR4Dp8QvSgjoHIQnGo5Hpsw8no8UOLg1t-5WQr6Dyw-XOpOi2uMtFeRfTBDqkjcJbmtZByOVouO07kO1yucR3ST54ZobvqcZFTG_ugFiT9wIZhBMNYLNqeblOhCBteH1I06QFD6Lml7158UICe3T8vQzabBESAYgSoU-svp0Fyw" />
+              <span
+                class="absolute top-3 left-3 bg-primary/80 backdrop-blur-md text-on-primary font-label-sm text-[0.625rem] uppercase tracking-widest px-2.5 py-1">Loft</span>
+            </div>
+            <div class="p-space-sm flex flex-col gap-2">
+              <div class="flex justify-between items-baseline">
+                <h3 class="font-title text-[1.1rem] text-on-surface">The Minimalist Loft, Bandra</h3>
+                <span class="font-label-sm text-label-sm text-secondary font-semibold">2023</span>
+              </div>
+              <p class="font-body-sm text-body-sm text-on-surface-variant">
+                Wabi-sabi lime plaster, raw micro-cement, and concealed joinery.
+              </p>
+              <div class="pt-2 flex items-center justify-between">
+                <span class="font-label-sm text-label-sm text-on-surface-variant tracking-wider uppercase">3,800 sq.ft •
+                  Mumbai</span>
+                <a class="font-label-sm text-label-sm uppercase tracking-wider text-secondary hover:text-on-surface transition-colors font-semibold"
+                  data-path="projects" href="project.html">View Case</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+      <!-- Interactive Material & Finish Palette Delight Bar -->
+      <section class="w-full px-margin-sm py-space-md">
+        <div class="bg-surface-container p-space-sm flex flex-col gap-space-xs shadow-sm">
+          <div class="flex items-center justify-between">
+            <span class="font-label-sm text-label-sm uppercase tracking-widest text-secondary">Material Taxonomy</span>
+            <span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Sustainably Sourced</span>
+          </div>
+          <p class="font-title text-[1.05rem] text-on-surface">Tactile Honesty at Every Touchpoint</p>
+          <div class="grid grid-cols-4 gap-2 pt-2">
+            <div class="flex flex-col items-center gap-1.5 p-2 bg-surface-container-high text-center">
+              <div class="w-8 h-8 rounded-full bg-[#E5DFD5] shadow-inner"></div>
+              <span class="font-label-sm text-[0.625rem] uppercase tracking-wider text-on-surface">Travertine</span>
+            </div>
+            <div class="flex flex-col items-center gap-1.5 p-2 bg-surface-container-high text-center">
+              <div class="w-8 h-8 rounded-full bg-[#4A3B32] shadow-inner"></div>
+              <span class="font-label-sm text-[0.625rem] uppercase tracking-wider text-on-surface">Smoked Oak</span>
+            </div>
+            <div class="flex flex-col items-center gap-1.5 p-2 bg-surface-container-high text-center">
+              <div class="w-8 h-8 rounded-full bg-[#B8986B] shadow-inner"></div>
+              <span class="font-label-sm text-[0.625rem] uppercase tracking-wider text-on-surface">Raw Bronze</span>
+            </div>
+            <div class="flex flex-col items-center gap-1.5 p-2 bg-surface-container-high text-center">
+              <div class="w-8 h-8 rounded-full bg-[#D7D2CB] shadow-inner"></div>
+              <span class="font-label-sm text-[0.625rem] uppercase tracking-wider text-on-surface">Limestone</span>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Client Testimonial Carousel -->
+      <section class="w-full px-margin-sm py-space-md flex flex-col gap-space-sm">
+        <div class="flex flex-col gap-1">
+          <span class="font-label-sm text-label-sm uppercase tracking-widest text-secondary">Patron Testimonials</span>
+          <h2 class="font-headline-sm text-headline-sm text-on-surface">Words from Our Clients</h2>
+        </div>
+        <!-- Active Review Card with Dynamic Switching JS -->
+        <div class="bg-surface-container p-space-md shadow-sm flex flex-col gap-space-sm transition-all duration-300"
+          id="testimonialContainer">
+          <div class="flex items-center justify-between">
+            <div class="flex text-secondary gap-1">
+              <span class="material-symbols-outlined text-[18px]">star</span>
+              <span class="material-symbols-outlined text-[18px]">star</span>
+              <span class="material-symbols-outlined text-[18px]">star</span>
+              <span class="material-symbols-outlined text-[18px]">star</span>
+              <span class="material-symbols-outlined text-[18px]">star</span>
+            </div>
+            <div
+              class="flex items-center gap-1 text-secondary font-label-sm text-[0.65rem] tracking-wider uppercase font-semibold">
+              <span class="material-symbols-outlined text-[14px]">verified</span>
+              Verified Estate Owner
+            </div>
+          </div>
+          <p class="font-body-md text-body-md text-on-surface italic leading-relaxed" id="testimonialQuote">
+            “Anu Interiors orchestrated an effortless transformation of our Worli sea-facing apartment. Every corner
+            feels intentional, tranquil, and deeply sculpted. Their discernment for rare natural stone is unparalleled.”
+          </p>
+          <div class="flex items-center justify-between pt-2">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 bg-primary text-on-primary flex items-center justify-center font-title text-title">
+                <span id="testimonialInitial">R</span>
+              </div>
+              <div class="flex flex-col">
+                <span class="font-title text-[0.95rem] text-on-surface font-semibold" id="testimonialAuthor">Rohit &amp;
+                  Malini Mehta</span>
+                <span class="font-label-sm text-label-sm text-on-surface-variant" id="testimonialMeta">Sky Villa •
+                  Worli, Mumbai</span>
+              </div>
+            </div>
+            <!-- Dot Toggles -->
+            <div class="flex items-center gap-1.5">
+              <button aria-label="Review 1" class="t-dot w-2.5 h-2.5 bg-primary transition-all"
+                onclick="setTestimonial(0)"></button>
+              <button aria-label="Review 2" class="t-dot w-2.5 h-2.5 bg-surface-container-highest transition-all"
+                onclick="setTestimonial(1)"></button>
+              <button aria-label="Review 3" class="t-dot w-2.5 h-2.5 bg-surface-container-highest transition-all"
+                onclick="setTestimonial(2)"></button>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Final Consultation Invite Block with Quick Booking Banner -->
+      <section class="w-full px-margin-sm py-space-lg">
+        <div
+          class="bg-primary text-on-primary p-space-md flex flex-col gap-space-sm relative overflow-hidden shadow-xl">
+          <!-- Decorative background accent -->
+          <div
+            class="absolute -right-8 -bottom-8 w-44 h-44 bg-surface-container-highest/10 rounded-full blur-2xl pointer-events-none">
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="w-5 h-[1.5px] bg-secondary-fixed"></span>
+            <span class="font-label-sm text-label-sm uppercase tracking-widest text-secondary-fixed">Begin the
+              Journey</span>
+          </div>
+          <h2 class="font-headline-sm text-headline-sm text-on-primary leading-tight">
+            Ready to Shape Your Sanctuary?
+          </h2>
+          <p class="font-body-sm text-body-sm text-on-primary-container">
+            We accept a limited selection of residential and boutique commercial commissions each year to ensure
+            uncompromising artisanal rigor.
+          </p>
+          <!-- Quick Interactive Selection -->
+          <div class="flex flex-col gap-2 pt-2">
+            <span class="font-label-sm text-[0.65rem] uppercase tracking-wider text-on-primary-container">Select Project
+              Typology</span>
+            <div class="grid grid-cols-2 gap-2">
+              <button
+                class="consult-tag p-2 text-left font-label-sm text-label-sm uppercase tracking-wider bg-surface-container-high/15 hover:bg-surface-container-high/25 text-on-primary transition-colors flex items-center justify-between"
+                onclick="selectType(this)" type="button">
+                <span>Private Residence</span>
+                <span class="material-symbols-outlined text-[14px]">check</span>
+              </button>
+              <button
+                class="consult-tag p-2 text-left font-label-sm text-label-sm uppercase tracking-wider bg-surface-container-high/10 hover:bg-surface-container-high/25 text-on-primary transition-colors flex items-center justify-between"
+                onclick="selectType(this)" type="button">
+                <span>Penthouse / Villa</span>
+                <span class="material-symbols-outlined text-[14px] opacity-0">check</span>
+              </button>
+              <button
+                class="consult-tag p-2 text-left font-label-sm text-label-sm uppercase tracking-wider bg-surface-container-high/10 hover:bg-surface-container-high/25 text-on-primary transition-colors flex items-center justify-between"
+                onclick="selectType(this)" type="button">
+                <span>Commercial Atelier</span>
+                <span class="material-symbols-outlined text-[14px] opacity-0">check</span>
+              </button>
+              <button
+                class="consult-tag p-2 text-left font-label-sm text-label-sm uppercase tracking-wider bg-surface-container-high/10 hover:bg-surface-container-high/25 text-on-primary transition-colors flex items-center justify-between"
+                onclick="selectType(this)" type="button">
+                <span>Modular Fit-Out</span>
+                <span class="material-symbols-outlined text-[14px] opacity-0">check</span>
+              </button>
+            </div>
+          </div>
+          <div class="pt-2 flex flex-col gap-2">
+            <a class="w-full min-h-[48px] bg-secondary text-on-secondary font-label-md text-label-md uppercase tracking-widest inline-flex items-center justify-center hover:bg-secondary-fixed hover:text-on-secondary-fixed transition-colors"
+              data-path="contact" href="contact.html">
+              <span>Schedule Private Discovery Call</span>
+              <span class="material-symbols-outlined text-[18px] ml-2">east</span>
+            </a>
+            <div class="flex items-center justify-center gap-2 pt-1">
+              <span class="w-1.5 h-1.5 rounded-full bg-secondary-fixed"></span>
+              <span class="font-label-sm text-[0.65rem] uppercase tracking-wider text-on-primary-container">Currently
+                taking bookings for Q3 &amp; Q4 2025</span>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Client-side Interactive Script -->
+      <script>
+        // Project Carousel Slider Scroll controls
+        const projectSlider = document.getElementById('projectSlider');
+        const projectPrevBtn = document.getElementById('projectPrevBtn');
+        const projectNextBtn = document.getElementById('projectNextBtn');
+
+        if (projectPrevBtn && projectNextBtn && projectSlider) {
+          projectPrevBtn.addEventListener('click', () => {
+            projectSlider.scrollBy({ left: -300, behavior: 'smooth' });
+          });
+          projectNextBtn.addEventListener('click', () => {
+            projectSlider.scrollBy({ left: 300, behavior: 'smooth' });
+          });
+        }
+
+        // Client Testimonials Data & Carousel logic
+        const testimonials = [
+          {
+            quote: "“Anu Interiors orchestrated an effortless transformation of our Worli sea-facing apartment. Every corner feels intentional, tranquil, and deeply sculpted. Their discernment for rare natural stone is unparalleled.”",
+            author: "Rohit & Malini Mehta",
+            meta: "Sky Villa • Worli, Mumbai",
+            initial: "R"
+          },
+          {
+            quote: "“From spatial planning to bespoke Italian joinery, the design execution was seamless. Our family sanctuary now feels like an architectural sanctuary in the heart of nature.”",
+            author: "Kavita Singhania",
+            meta: "Coastal Villa • Alibaug",
+            initial: "K"
+          },
+          {
+            quote: "“Working with Anu’s atelier defined the character of our flagship studio in Bandra. It commands presence while offering serene acoustic retreat from the city buzz.”",
+            author: "Arjun Nambiar",
+            meta: "Atelier Founder • Bandra West",
+            initial: "A"
+          }
+        ];
+
+        let currentTestimonialIndex = 0;
+
+        function setTestimonial(index) {
+          currentTestimonialIndex = index;
+          const data = testimonials[index];
+
+          const quoteEl = document.getElementById('testimonialQuote');
+          const authorEl = document.getElementById('testimonialAuthor');
+          const metaEl = document.getElementById('testimonialMeta');
+          const initialEl = document.getElementById('testimonialInitial');
+          const dots = document.querySelectorAll('.t-dot');
+
+          if (quoteEl) quoteEl.innerHTML = data.quote;
+          if (authorEl) authorEl.textContent = data.author;
+          if (metaEl) metaEl.textContent = data.meta;
+          if (initialEl) initialEl.textContent = data.initial;
+
+          dots.forEach((dot, i) => {
+            if (i === index) {
+              dot.className = 't-dot w-2.5 h-2.5 bg-primary transition-all';
+            } else {
+              dot.className = 't-dot w-2.5 h-2.5 bg-surface-container-highest transition-all';
+            }
+          });
+        }
+
+        // Consultation Tag Selection State Micro-interaction
+        function selectType(btn) {
+          const allButtons = document.querySelectorAll('.consult-tag');
+          allButtons.forEach(b => {
+            b.classList.remove('bg-surface-container-high/25');
+            b.classList.add('bg-surface-container-high/10');
+            const icon = b.querySelector('.material-symbols-outlined');
+            if (icon) icon.classList.add('opacity-0');
+          });
+
+          btn.classList.remove('bg-surface-container-high/10');
+          btn.classList.add('bg-surface-container-high/25');
+          const activeIcon = btn.querySelector('.material-symbols-outlined');
+          if (activeIcon) activeIcon.classList.remove('opacity-0');
+        }
+      </script>
+    </div>
+  </main>
+  <nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface/90 backdrop-blur-xl shadow-[0_-1px_10px_rgba(0,0,0,0.04)]"
+    data-active-classes="text-primary font-semibold relative after:content-[''] after:absolute after:bottom-1 after:w-1 after:h-1 after:bg-secondary after:rounded-full">
+    <div class="flex justify-around items-center h-16 px-space-xs"><a aria-current="page"
+        class="flex flex-col items-center justify-center w-14 h-14 transition-colors text-primary font-semibold relative after:content-[''] after:absolute after:bottom-1 after:w-1 after:h-1 after:bg-secondary after:rounded-full"
+        data-path="home" href="index.html"><span class="material-symbols-outlined text-[22px]">home</span><span
+          class="font-label-sm text-label-sm uppercase mt-0.5">Home</span></a><a
+        class="flex flex-col items-center justify-center w-14 h-14 text-on-surface-variant hover:text-on-surface transition-colors"
+        data-path="about" href="about.html"><span
+          class="material-symbols-outlined text-[22px]">person_outline</span><span
+          class="font-label-sm text-label-sm uppercase mt-0.5">About</span></a><a
+        class="flex flex-col items-center justify-center w-14 h-14 text-on-surface-variant hover:text-on-surface transition-colors"
+        data-path="services" href="service.html"><span
+          class="material-symbols-outlined text-[22px]">grid_view</span><span
+          class="font-label-sm text-label-sm uppercase mt-0.5">Services</span></a><a
+        class="flex flex-col items-center justify-center w-14 h-14 text-on-surface-variant hover:text-on-surface transition-colors"
+        data-path="projects" href="project.html"><span
+          class="material-symbols-outlined text-[22px]">photo_library</span><span
+          class="font-label-sm text-label-sm uppercase mt-0.5">Projects</span></a><a
+        class="flex flex-col items-center justify-center w-14 h-14 text-on-surface-variant hover:text-on-surface transition-colors"
+        data-path="contact" href="contact.html"><span
+          class="material-symbols-outlined text-[22px]">calendar_today</span><span
+          class="font-label-sm text-label-sm uppercase mt-0.5">Contact</span></a></div>
+  </nav>
+</body>
+
+</html>
